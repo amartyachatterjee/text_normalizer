@@ -23,10 +23,12 @@ A comprehensive normalizing API for any English text cleaning and normalization
   
   my_stop = CustomStopWords(domain_specific_stops=['stp1','custstop'],
                             nltk_data_path=nltk_data_path)
+  
   tn = TextNormalizer(custom_stopwords=my_stop,
                       nltk_data_path=nltk_data_path,
                       is_remove_domain_specific_stops=True)
 
   text = f'''What'll be super fun to play around with Python code. Love it David! Test for domain stops like custstop :-) sdkhfgyudeewr874365843750tefxbchjgkjfdv'''
+  
   nt = tn.get_normalized_text(text, True)
   
