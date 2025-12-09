@@ -4,7 +4,7 @@ setup(
     name='text_normalizer',
     version='0.1.0',
     description='An API to return normalized text after scrubbing it. Requires stop_words package.',
-    # long_description=open('README.md').read(),
+    long_description=open('README.md').read(),
     author='Amartya Chatterjee',
     author_email='amartya.chatterjee@gmail.com',
     license='MIT',
@@ -34,3 +34,4 @@ setup(
         '''https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.8.0/en_core_web_lg-3.8.0-py3-none-any.whl'''
     ]
 )
+
