@@ -1,7 +1,7 @@
 # text_normalizer
 A comprehensive normalizing API for any English text cleaning and normalization
 
-## **Installation:**
+## **Installation**
 ```
 pip install git+https://github.com/amartyachatterjee/text_normalizer.git
 ```
@@ -15,7 +15,7 @@ pip install git+https://github.com/amartyachatterjee/text_normalizer.git
 - is_remove_persons: bool = True -> Set to False if you do not want person names (identified using spacy's NER) removed from text
 ```
   
-## **Usage:**
+## **Usage**
 ```
 from pathlib import Path
 from stop_words.stop_words.stop_words import CustomStopWords
