@@ -102,7 +102,24 @@ class TextNormalizer:
         return result
 
     def lemmatize_text(self,text):
-        result = ' '.join([token.lemma_ for token in self.nlp(text)])
+        max_length = self.nlp.max_length
+        full_iterations, last_iteration = divmod(len(text), max_length)
+        full_iterations = 1 if full_iterations == 0 else full_iterations
+
+        lemma_list = []
+        for i in range(full_iterations):
+            if len(text) <= max_length:
+                tmp_text = text
+            else:
+                tmp_text = text[i*max_length:(i+1)*max_length]
+            lemma_list.append(' '.join([token.lemma_ for token in self.nlp(tmp_text)]))
+
+            if (len(text) > max_length) and i == full_iterations - 1:
+                if last_iteration > 0:
+                    tmp_text = text[max_length*(i+1):]
+                    lemma_list.append(' '.join([token.lemma_ for token in self.nlp(tmp_text)]))
+                    
+        result = ' '.join(lemma_list)
         return result
 
     def discard_non_alpha(self,text):
@@ -215,4 +232,5 @@ class TextNormalizer:
             print(f'''Cleaned text: \n\t{text}''')
 
         return text
+
 
